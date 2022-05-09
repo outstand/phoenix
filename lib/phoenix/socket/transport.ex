@@ -306,6 +306,7 @@ defmodule Phoenix.Socket.Transport do
 
   defp force_ssl_config(socket, endpoint, opts) do
     Phoenix.Config.cache(endpoint, {:force_ssl, socket}, fn _ ->
+      IO.inspect(opts)
       opts =
         if force_ssl = Keyword.get(opts, :force_ssl, endpoint.config(:force_ssl)) do
           force_ssl
