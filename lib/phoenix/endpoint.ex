@@ -676,6 +676,7 @@ defmodule Phoenix.Endpoint do
     paths =
       if websocket do
         config = Phoenix.Socket.Transport.load_config(websocket, Phoenix.Transports.WebSocket)
+        IO.inspect(config)
         {conn_ast, match_path} = socket_path(path, config)
         [{match_path, :websocket, conn_ast, socket, config} | paths]
       else
