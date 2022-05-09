@@ -595,6 +595,8 @@ defmodule Phoenix.Socket.Transport do
     do: apply(module, function, [uri | arguments])
 
   defp origin_allowed?(:conn, uri, _endpoint, %Plug.Conn{} = conn) do
+    IO.inspect(uri)
+    IO.inspect(conn)
     uri.host == conn.host and
       uri.scheme == Atom.to_string(conn.scheme) and
       uri.port == conn.port
